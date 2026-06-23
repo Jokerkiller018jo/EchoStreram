@@ -1,0 +1,23 @@
+{
+  "name": "echostream",
+  "version": "1.0.0",
+  "description": "Echostream Discord Bot",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "deploy-commands": "node src/deploy-commands.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "axios": "^1.6.8",
+    "discord.js": "^14.15.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "pg": "^8.11.5",
+    "prisma": "^5.14.0"
+  }
+}

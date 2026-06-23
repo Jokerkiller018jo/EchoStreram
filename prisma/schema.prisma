@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Guild {
+  guildId             String         @id
+  announcementChannel String?
+  liveRole            String?
+  streamers           Streamer[]
+  announcements       Announcement[]
+}
+
+model Streamer {
+  id           Int       @id @default(autoincrement())
+  platform     String    // "twitch" or "youtube"
+  streamerId   String
+  streamerName String
+  lastLive     DateTime?
+  guildId      String
+  guild        Guild     @relation(fields: [guildId], references: [guildId])
+}
+
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  guildId   String
+  messageId String
+  createdAt DateTime @default(now())
+  guild     Guild    @relation(fields: [guildId], references: [guildId])
+}

@@ -1,5 +1,5 @@
 const { Events } = require('discord.js');
-const prisma = require('../../database/prisma');
+const prisma = require('../database/prisma');
 const logger = require('../utils/logger');
 
 module.exports = {
